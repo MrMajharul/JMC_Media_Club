@@ -22,6 +22,14 @@ const config: Config = {
       backdropFilter: {
         glass: 'blur(10px) saturate(180%)',
       },
+      animation: {
+        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      animationDelay: {
+        '0': '0s',
+        '2000': '2000ms',
+        '4000': '4000ms',
+      },
     },
   },
   plugins: [
