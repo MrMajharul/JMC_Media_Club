@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
+import { Facebook, Mail, MapPin, Phone, Linkedin, Info } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -57,10 +57,10 @@ export default function Footer() {
                 <Facebook size={20} />
               </a>
               <a href="#" className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all">
-                <Twitter size={20} />
+                <Mail size={20} />
               </a>
               <a href="#" className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all">
-                <Instagram size={20} />
+                <Info size={20} />
               </a>
               <a href="#" className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all">
                 <Linkedin size={20} />
