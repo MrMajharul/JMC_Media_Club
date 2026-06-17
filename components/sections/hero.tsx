@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
@@ -86,22 +87,18 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Right Visual */}
-          <motion.div className="hidden md:block" variants={itemVariants}>
+          <motion.div className="hidden md:flex justify-center" variants={itemVariants}>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-jmc-green to-jmc-orange rounded-2xl blur-2xl opacity-30"></div>
-              <div className="relative bg-gradient-to-br from-jmc-green/10 to-jmc-orange/10 border border-jmc-green/30 rounded-2xl p-8 backdrop-blur-sm">
-                <div className="space-y-4">
-                  <div className="flex gap-3 pb-4">
-                    <div className="w-3 h-3 bg-jmc-green rounded-full"></div>
-                    <div className="w-3 h-3 bg-jmc-orange rounded-full"></div>
-                    <div className="w-3 h-3 bg-jmc-navy rounded-full"></div>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="h-3 bg-jmc-green/30 rounded w-full"></div>
-                    <div className="h-3 bg-jmc-orange/30 rounded w-5/6"></div>
-                    <div className="h-3 bg-jmc-green/20 rounded w-4/5"></div>
-                  </div>
-                </div>
+              <div className="relative rounded-2xl p-6 bg-black border border-jmc-green/30 shadow-2xl shadow-jmc-green/20">
+                <Image
+                  src="/favicon.png"
+                  alt="JMC Media Club logo"
+                  width={320}
+                  height={320}
+                  className="w-64 h-auto lg:w-72"
+                  priority
+                />
               </div>
             </div>
           </motion.div>

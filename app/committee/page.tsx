@@ -4,7 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
-import { Mail, Linkedin } from 'lucide-react'
+import { Mail, Share2 } from 'lucide-react'
 
 export default function CommitteePage() {
   const committee = [
@@ -134,7 +134,7 @@ export default function CommitteePage() {
                       <Mail size={20} className="text-jmc-green" />
                     </button>
                     <button className="p-2 hover:bg-jmc-green/10 rounded-lg transition-colors">
-                      <Linkedin size={20} className="text-jmc-green" />
+                      <Share2 size={20} className="text-jmc-green" />
                     </button>
                   </div>
                 </div>

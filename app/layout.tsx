@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   description: 'Official website of JMC Media Club - Department of Journalism and Media Communication at Green University of Bangladesh',
   keywords: ['journalism', 'media', 'communication', 'club', 'events', 'green university'],
   authors: [{ name: 'JMC Media Club' }],
+  icons: {
+    icon: '/favicon.png',
+    apple: '/android-chrome-192x192.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

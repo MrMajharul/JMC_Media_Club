@@ -2,56 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --jmc-green: #8BCF00;
-  --jmc-orange: #FF8A3D;
-  --jmc-navy: #081420;
-  --background: 0 0% 100%;
-  --foreground: 0 0% 3.6%;
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 3.6%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 3.6%;
-  --muted: 0 0% 96.1%;
-  --muted-foreground: 0 0% 45.1%;
-  --accent: 142 71% 45%;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 0 0% 89.8%;
-  --input: 0 0% 89.8%;
-  --ring: 142 71% 45%;
-  --radius: 0.5rem;
-}
-
-.dark {
-  --background: 0 0% 3.6%;
-  --foreground: 0 0% 98.2%;
-  --card: 0 0% 9.8%;
-  --card-foreground: 0 0% 98.2%;
-  --popover: 0 0% 9.8%;
-  --popover-foreground: 0 0% 98.2%;
-  --muted: 0 0% 14.9%;
-  --muted-foreground: 0 0% 63.9%;
-  --accent: 142 71% 29%;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 0 0% 14.9%;
-  --input: 0 0% 14.9%;
-  --ring: 142 71% 29%;
-}
-
-* {
-  @apply border-border;
-}
-
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  @apply bg-background text-foreground;
 }
 
 /* Glass morphism effect */
@@ -81,11 +33,6 @@ body {
 /* Text gradient */
 .text-gradient {
   @apply bg-gradient-to-r from-jmc-green to-jmc-orange bg-clip-text text-transparent;
-}
-
-/* Smooth transitions */
-.transition-all {
-  @apply transition-all duration-300 ease-in-out;
 }
 
 /* Scrollbar customization */

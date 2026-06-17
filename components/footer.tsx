@@ -1,8 +1,9 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
-import { Facebook, Mail, MapPin, Phone, Linkedin, Info } from 'lucide-react'
+import { Share2, Mail, MapPin, Phone, Share } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -13,6 +14,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
           <div>
+            <Image
+              src="/favicon.png"
+              alt="JMC Media Club logo"
+              width={120}
+              height={120}
+              className="w-24 h-auto mb-4"
+            />
             <h3 className="font-montserrat font-bold text-lg mb-4">JMC Media Club</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Official student club of the Department of Journalism and Media Communication at Green University of Bangladesh.
@@ -54,16 +62,16 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Follow Us</h4>
             <div className="flex gap-4">
               <a href="#" className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all">
-                <Facebook size={20} />
+                <Share2 size={20} />
               </a>
               <a href="#" className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all">
                 <Mail size={20} />
               </a>
               <a href="#" className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all">
-                <Info size={20} />
+                <Share size={20} />
               </a>
               <a href="#" className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all">
-                <Linkedin size={20} />
+                <Mail size={20} />
               </a>
             </div>
           </div>

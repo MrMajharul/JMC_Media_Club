@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 
@@ -22,13 +23,18 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-jmc-green to-jmc-orange rounded-lg flex items-center justify-center text-white font-bold text-lg">
-              JM
-            </div>
+          <Link href="/" className="flex items-center gap-3 group">
+            <Image
+              src="/android-chrome-192x192.png"
+              alt="JMC Media Club logo"
+              width={40}
+              height={40}
+              className="w-10 h-10 rounded-lg object-cover"
+              priority
+            />
             <div className="hidden sm:block">
               <h1 className="font-montserrat font-bold text-lg text-jmc-navy dark:text-white">
-                JMC Media
+                JMC Media Club
               </h1>
               <p className="text-xs text-jmc-green font-semibold">Green University</p>
             </div>
