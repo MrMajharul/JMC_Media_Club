@@ -5,7 +5,28 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
-import { Mail, ExternalLink, Users, Star, Award } from 'lucide-react'
+import { Mail, Users, Star, Award } from 'lucide-react'
+
+interface IconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const FacebookIcon = ({ size = 24, ...props }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+)
 
 type Executive = {
   id: string | null
@@ -19,6 +40,15 @@ type Executive = {
 
 const executives: Executive[] = [
   // ─── Special Roles ───────────────────────────────────────────────────────────
+  {
+    id: null,
+    name: 'Jannatul Ferdous Meem',
+    role: 'Moderator',
+    email: 'jmcmediaclub@gmail.com',
+    facebookUrl: null,
+    photo: '/executives/Moderator.png',
+    initials: 'JFM',
+  },
   {
     id: null,
     name: 'Samantha Ali',
@@ -279,11 +309,11 @@ const executives: Executive[] = [
 // Group executives into sections
 const sections = [
   {
-    label: 'Special Role',
+    label: 'Advisor & Special Role',
     icon: Star,
     color: 'from-purple-500 to-pink-500',
     members: executives.filter((e) =>
-      ['Ambassador'].includes(e.role)
+      ['Moderator', 'Ambassador'].includes(e.role)
     ),
   },
   {
@@ -302,6 +332,7 @@ const sections = [
       (e) =>
         ![
           'Ambassador',
+          'Moderator',
           'President',
           'Vice President',
           'General Secretary',
@@ -398,7 +429,7 @@ function MemberCard({ member }: { member: Executive }) {
               className="p-2 rounded-lg bg-gray-50 dark:bg-slate-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group/btn"
               aria-label={`Facebook profile of ${member.name}`}
             >
-              <ExternalLink
+              <FacebookIcon
                 size={15}
                 className="text-gray-500 dark:text-gray-400 group-hover/btn:text-blue-500 transition-colors"
               />

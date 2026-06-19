@@ -17,7 +17,6 @@ export default function Header() {
     { label: 'Gallery', href: '/gallery' },
     { label: 'Executives', href: '/executives' },
     { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' },
   ]
 
   const isActive = (href: string) =>

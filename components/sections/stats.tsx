@@ -6,7 +6,7 @@ import { Users, Zap, Trophy, Calendar } from 'lucide-react'
 
 export default function Stats() {
   const stats = [
-    { icon: Users, label: 'Active Members', value: '500+' },
+    { icon: Users, label: 'Members', value: '500+' },
     { icon: Calendar, label: 'Events Per Year', value: '40+' },
     { icon: Trophy, label: 'Achievements', value: '50+' },
     { icon: Zap, label: 'Projects', value: '100+' },
