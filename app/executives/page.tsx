@@ -21,6 +21,15 @@ const executives: Executive[] = [
   // ─── Special Roles ───────────────────────────────────────────────────────────
   {
     id: null,
+    name: 'Jannatul Ferdous Meem',
+    role: 'Moderator',
+    email: 'jmcmediaclub@gmail.com',
+    facebookUrl: null,
+    photo: '/executives/Moderator.png',
+    initials: 'JFM',
+  },
+  {
+    id: null,
     name: 'Samantha Ali',
     role: 'Ambassador',
     email: 'samanthaali602@gmail.com',
@@ -279,11 +288,11 @@ const executives: Executive[] = [
 // Group executives into sections
 const sections = [
   {
-    label: 'Special Role',
+    label: 'Advisor & Special Role',
     icon: Star,
     color: 'from-purple-500 to-pink-500',
     members: executives.filter((e) =>
-      ['Ambassador'].includes(e.role)
+      ['Moderator', 'Ambassador'].includes(e.role)
     ),
   },
   {
@@ -302,6 +311,7 @@ const sections = [
       (e) =>
         ![
           'Ambassador',
+          'Moderator',
           'President',
           'Vice President',
           'General Secretary',
