@@ -71,7 +71,7 @@ export default function Committee() {
             <p className="text-gray-600 dark:text-gray-400">Meet the leaders driving our vision</p>
           </div>
           <Link
-            href="/committee"
+            href="/executives"
             className="hidden md:flex items-center gap-2 text-jmc-green font-semibold hover:gap-3 transition-all"
           >
             View Full Committee
@@ -115,7 +115,7 @@ export default function Committee() {
           viewport={{ once: true }}
         >
           <Link
-            href="/committee"
+            href="/executives"
             className="inline-flex items-center gap-2 text-jmc-green font-semibold hover:gap-3 transition-all"
           >
             View Full Committee
