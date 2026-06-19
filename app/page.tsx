@@ -7,7 +7,7 @@ import HeroSection from '@/components/sections/hero'
 import Stats from '@/components/sections/stats'
 import FeaturedEvents from '@/components/sections/featured-events'
 import About from '@/components/sections/about'
-import Committee from '@/components/sections/committee'
+import LeadershipMessages from '@/components/sections/leadership-messages'
 
 export default function Home() {
   return (
@@ -16,9 +16,10 @@ export default function Home() {
       <HeroSection />
       <Stats />
       <About />
+      <LeadershipMessages />
       <FeaturedEvents />
-      <Committee />
       <Footer />
     </main>
   )
 }
+
