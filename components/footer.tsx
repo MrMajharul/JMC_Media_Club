@@ -5,6 +5,23 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Share2, Mail, MapPin, Phone, Share } from 'lucide-react'
 
+const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+)
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -44,16 +61,13 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-jmc-green mt-0.5 flex-shrink-0" />
-                <span>Green University of Bangladesh, Dhaka</span>
+                <span>Green University of Bangladesh, Purbachal American City, Kanchan, Rupganj, Narayanganj-1461, Dhaka, Bangladesh</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-jmc-green flex-shrink-0" />
-                <a href="mailto:contact@jmc.green.edu.bd" className="hover:text-jmc-green transition-colors">contact@jmc.green.edu.bd</a>
+                <a href="mailto:jmcmediaclub@gmail.com" className="hover:text-jmc-green transition-colors">jmcmediaclub@gmail.com</a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={16} className="text-jmc-green flex-shrink-0" />
-                <span>+880 1700-000000</span>
-              </li>
+
             </ul>
           </div>
 
@@ -61,16 +75,20 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Follow Us</h4>
             <div className="flex gap-4">
-              <a href="#" className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all">
-                <Share2 size={20} />
+              <a
+                href="https://www.facebook.com/JMCMediaClub"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all"
+                aria-label="Facebook Page"
+              >
+                <FacebookIcon />
               </a>
-              <a href="#" className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all">
-                <Mail size={20} />
-              </a>
-              <a href="#" className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all">
-                <Share size={20} />
-              </a>
-              <a href="#" className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all">
+              <a
+                href="mailto:jmcmediaclub@gmail.com"
+                className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all"
+                aria-label="Email"
+              >
                 <Mail size={20} />
               </a>
             </div>
