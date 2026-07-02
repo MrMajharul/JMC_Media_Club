@@ -149,14 +149,14 @@ export default function HeroSection() {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative w-56 h-56 rounded-full border-2 border-jmc-green/30 bg-jmc-navy/80 backdrop-blur-sm shadow-2xl shadow-jmc-green/20 flex items-center justify-center overflow-hidden"
+                className="relative w-56 h-56 rounded-full border-2 border-jmc-green/40 bg-white shadow-2xl shadow-jmc-green/20 flex items-center justify-center overflow-hidden"
               >
                 <Image
                   src="/favicon.png"
                   alt="JMC Media Club logo"
                   width={200}
                   height={200}
-                  className="w-44 h-44 object-contain"
+                  className="w-48 h-48 object-contain"
                   priority
                 />
               </motion.div>

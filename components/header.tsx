@@ -44,15 +44,17 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
-              <div className="absolute -inset-1 rounded-xl bg-jmc-green/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
-              <Image
-                src="/android-chrome-192x192.png"
-                alt="JMC Media Club logo"
-                width={40}
-                height={40}
-                className="relative w-10 h-10 rounded-xl object-cover"
-                priority
-              />
+              <div className="absolute -inset-1 rounded-full bg-jmc-green/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+              <div className="relative w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-md overflow-hidden">
+                <Image
+                  src="/android-chrome-192x192.png"
+                  alt="JMC Media Club logo"
+                  width={44}
+                  height={44}
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </div>
             </div>
             <div className="hidden sm:block">
               <p className="font-montserrat font-bold text-base text-jmc-navy dark:text-white leading-tight">

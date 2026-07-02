@@ -54,14 +54,16 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3 mb-5 group">
               <div className="relative">
-                <div className="absolute -inset-1 rounded-xl bg-jmc-green/20 opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
-                <Image
-                  src="/favicon.png"
-                  alt="JMC Media Club logo"
-                  width={52}
-                  height={52}
-                  className="relative w-12 h-12 rounded-xl object-cover"
-                />
+                <div className="absolute -inset-1 rounded-full bg-jmc-green/30 opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
+                <div className="relative w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-lg overflow-hidden">
+                  <Image
+                    src="/favicon.png"
+                    alt="JMC Media Club logo"
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </div>
               <div>
                 <p className="font-montserrat font-bold text-base leading-tight">JMC Media Club</p>
