@@ -6,36 +6,34 @@ import { Users, Zap, Trophy, Calendar } from 'lucide-react'
 
 export default function Stats() {
   const stats = [
-    { icon: Users, label: 'Members', value: '500+' },
-    { icon: Calendar, label: 'Events Per Year', value: '40+' },
-    { icon: Trophy, label: 'Achievements', value: '50+' },
-    { icon: Zap, label: 'Projects', value: '100+' },
+    { icon: Users,    label: 'Members',       value: '500+', desc: 'Active student members' },
+    { icon: Calendar, label: 'Events Per Year',value: '40+',  desc: 'Workshops & seminars' },
+    { icon: Trophy,   label: 'Achievements',   value: '50+',  desc: 'Awards & recognitions' },
+    { icon: Zap,      label: 'Projects',       value: '100+', desc: 'Media productions' },
   ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
   }
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-900">
+    <section className="py-20 bg-jmc-light dark:bg-jmc-bg-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -46,19 +44,25 @@ export default function Stats() {
             return (
               <motion.div
                 key={index}
-                className="p-8 rounded-xl bg-gradient-to-br from-jmc-green/10 to-jmc-orange/10 border border-jmc-green/20 hover:border-jmc-green/50 transition-all hover:shadow-xl"
+                className="group relative p-7 rounded-2xl bg-white dark:bg-jmc-card-dark border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-xl hover:shadow-jmc-green/10 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
                 variants={itemVariants}
-                whileHover={{ y: -5 }}
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="p-3 bg-gradient-to-br from-jmc-green to-jmc-orange rounded-lg">
-                    <Icon className="text-white" size={24} />
+                {/* Left accent bar */}
+                <div className="absolute left-0 top-6 bottom-6 w-1 rounded-r-full bg-jmc-green opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                {/* Icon */}
+                <div className="mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-jmc-green/10 group-hover:bg-jmc-green/15 flex items-center justify-center transition-colors duration-300">
+                    <Icon className="text-jmc-dark-green group-hover:text-jmc-green transition-colors duration-300" size={22} />
                   </div>
                 </div>
-                <h3 className="text-4xl font-bold text-jmc-navy dark:text-white mb-2 font-montserrat">
+
+                {/* Value */}
+                <p className="font-montserrat font-bold text-4xl text-jmc-navy dark:text-white mb-1">
                   {stat.value}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">{stat.label}</p>
+                </p>
+                <p className="font-semibold text-sm text-jmc-dark dark:text-gray-300">{stat.label}</p>
+                <p className="text-xs text-gray-400 mt-1">{stat.desc}</p>
               </motion.div>
             )
           })}

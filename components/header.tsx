@@ -1,46 +1,66 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Camera } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 
   const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Events', href: '/events' },
-    { label: 'Gallery', href: '/gallery' },
+    { label: 'Home',       href: '/' },
+    { label: 'About',      href: '/about' },
+    { label: 'Events',     href: '/events' },
+    { label: 'Gallery',    href: '/gallery' },
     { label: 'Executives', href: '/executives' },
-    { label: 'Blog', href: '/blog' },
+    { label: 'Blog',       href: '/blog' },
   ]
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-jmc-green/20">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/90 dark:bg-jmc-navy/95 backdrop-blur-xl shadow-lg shadow-jmc-navy/10 border-b border-jmc-green/10'
+          : 'bg-white/70 dark:bg-jmc-navy/70 backdrop-blur-md border-b border-transparent'
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
         <div className="flex justify-between items-center">
+
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <Image
-              src="/android-chrome-192x192.png"
-              alt="JMC Media Club logo"
-              width={40}
-              height={40}
-              className="w-10 h-10 rounded-lg object-cover"
-              priority
-            />
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-xl bg-jmc-green/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+              <Image
+                src="/android-chrome-192x192.png"
+                alt="JMC Media Club logo"
+                width={40}
+                height={40}
+                className="relative w-10 h-10 rounded-xl object-cover"
+                priority
+              />
+            </div>
             <div className="hidden sm:block">
-              <h1 className="font-montserrat font-bold text-lg text-jmc-navy dark:text-white">
+              <p className="font-montserrat font-bold text-base text-jmc-navy dark:text-white leading-tight">
                 JMC Media Club
-              </h1>
-              <p className="text-xs text-jmc-green font-semibold">Green University</p>
+              </p>
+              <p className="text-[11px] text-jmc-green font-semibold tracking-wide leading-tight">
+                Green University
+              </p>
             </div>
           </Link>
 
@@ -50,65 +70,108 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(item.href)
                     ? 'text-jmc-green bg-jmc-green/10 dark:bg-jmc-green/10'
-                    : 'text-jmc-navy dark:text-white hover:text-jmc-green dark:hover:text-jmc-green hover:bg-gray-100 dark:hover:bg-slate-800'
+                    : 'text-jmc-dark dark:text-gray-300 hover:text-jmc-green dark:hover:text-jmc-green hover:bg-jmc-green/5 dark:hover:bg-jmc-green/5'
                 }`}
               >
                 {item.label}
+                {isActive(item.href) && (
+                  <motion.div
+                    layoutId="nav-active"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-jmc-green"
+                  />
+                )}
               </Link>
             ))}
           </div>
 
-          {/* CTA and Mobile Menu */}
-          <div className="flex items-center gap-4">
+          {/* CTA + Mobile Toggle */}
+          <div className="flex items-center gap-3">
             <Link
               href="/membership"
-              className="hidden sm:inline-block px-6 py-2 bg-gradient-to-r from-jmc-green to-jmc-orange text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-jmc-dark-green hover:bg-jmc-green text-white rounded-xl font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-jmc-green/30 hover:-translate-y-0.5"
             >
+              <Camera size={16} />
               Join Us
             </Link>
 
-            {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+              className="lg:hidden p-2 hover:bg-jmc-green/10 dark:hover:bg-jmc-green/10 rounded-lg transition-colors text-jmc-dark dark:text-gray-300"
               aria-label="Toggle navigation menu"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              <AnimatePresence mode="wait" initial={false}>
+                {isOpen ? (
+                  <motion.span
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <X size={22} />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <Menu size={22} />
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="lg:hidden mt-4 pt-4 border-t border-gray-200 dark:border-slate-700">
-            <div className="flex flex-col gap-1">
-              {navItems.map((item) => (
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: 'easeInOut' }}
+              className="lg:hidden overflow-hidden"
+            >
+              <div className="mt-3 pt-3 border-t border-jmc-green/10 flex flex-col gap-1 pb-2">
+                {navItems.map((item, i) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
+                        isActive(item.href)
+                          ? 'text-jmc-green bg-jmc-green/10 font-semibold'
+                          : 'text-jmc-dark dark:text-gray-300 hover:bg-jmc-green/5 hover:text-jmc-green dark:hover:text-jmc-green'
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
                 <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
-                    isActive(item.href)
-                      ? 'text-jmc-green bg-jmc-green/10 font-semibold'
-                      : 'text-jmc-navy dark:text-white hover:bg-gray-100 dark:hover:bg-slate-800'
-                  }`}
+                  href="/membership"
+                  className="mt-2 flex items-center justify-center gap-2 px-4 py-3 bg-jmc-dark-green hover:bg-jmc-green text-white rounded-xl font-semibold text-sm text-center transition-all duration-200"
                   onClick={() => setIsOpen(false)}
                 >
-                  {item.label}
+                  <Camera size={16} />
+                  Join Us
                 </Link>
-              ))}
-              <Link
-                href="/membership"
-                className="mt-2 px-4 py-2.5 bg-gradient-to-r from-jmc-green to-jmc-orange text-white rounded-lg font-semibold text-center hover:shadow-lg transition-all"
-                onClick={() => setIsOpen(false)}
-              >
-                Join Us
-              </Link>
-            </div>
-          </div>
-        )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   )

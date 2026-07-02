@@ -2,113 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Base ─────────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
 }
 
-/* Glass morphism effect */
+/* ─── Glass morphism ────────────────────────────────────────────────────── */
 .glass {
-  @apply backdrop-blur-lg bg-white/20 dark:bg-white/10 border border-white/20 dark:border-white/10;
+  @apply backdrop-blur-lg bg-white/10 dark:bg-white/5 border border-white/20 dark:border-white/10;
 }
 
-/* Gradient animations */
+.glass-light {
+  @apply backdrop-blur-md bg-white/80 dark:bg-[#0D1B2A]/80 border border-white/30 dark:border-white/10;
+}
+
+/* ─── Gradient text ─────────────────────────────────────────────────────── */
+.text-gradient {
+  @apply bg-gradient-to-r from-jmc-green to-jmc-dark-green bg-clip-text text-transparent;
+}
+
+.text-gradient-light {
+  @apply bg-gradient-to-r from-[#22C55E] to-[#4ade80] bg-clip-text text-transparent;
+}
+
+/* ─── Animated gradient bg ──────────────────────────────────────────────── */
 @keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
 }
 
 .animate-gradient {
-  @apply bg-gradient-to-r from-jmc-green via-jmc-orange to-jmc-green;
+  @apply bg-gradient-to-r from-jmc-dark-green via-jmc-green to-jmc-dark-green;
   background-size: 200% 200%;
-  animation: gradient 3s ease infinite;
+  animation: gradient 4s ease infinite;
 }
 
-/* Text gradient */
-.text-gradient {
-  @apply bg-gradient-to-r from-jmc-green to-jmc-orange bg-clip-text text-transparent;
-}
-
-/* Scrollbar customization */
-::-webkit-scrollbar {
-  @apply w-2 h-2;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
-
+/* ─── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { @apply w-1.5 h-1.5; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
 ::-webkit-scrollbar-thumb {
-  @apply bg-jmc-green rounded-full;
+  @apply bg-jmc-dark-green/60 rounded-full;
+  transition: background-color 0.2s;
 }
+::-webkit-scrollbar-thumb:hover { @apply bg-jmc-green; }
 
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-jmc-orange;
-}
-
-/* Custom animations */
+/* ─── Animations ────────────────────────────────────────────────────────── */
 @keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0);     }
 }
-
 @keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0);    }
 }
-
 @keyframes slideInFromTop {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0);     }
 }
-
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
 }
 
-.animate-slide-in-left {
-  animation: slideInFromLeft 0.5s ease-out;
+/* Hero aperture ring pulse */
+@keyframes aperturePulse {
+  0%, 100% { opacity: 0.15; transform: scale(1);    }
+  50%       { opacity: 0.30; transform: scale(1.04); }
 }
 
-.animate-slide-in-right {
-  animation: slideInFromRight 0.5s ease-out;
+.animate-slide-in-left   { animation: slideInFromLeft  0.5s ease-out; }
+.animate-slide-in-right  { animation: slideInFromRight 0.5s ease-out; }
+.animate-slide-in-top    { animation: slideInFromTop   0.5s ease-out; }
+.animate-fade-in-up      { animation: fadeInUp         0.6s ease-out; }
+.animate-aperture-pulse  { animation: aperturePulse    4s ease-in-out infinite; }
+
+/* ─── Card hover lift ───────────────────────────────────────────────────── */
+.card-hover {
+  @apply transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-jmc-green/10;
 }
 
-.animate-slide-in-top {
-  animation: slideInFromTop 0.5s ease-out;
+/* ─── Green accent border left ──────────────────────────────────────────── */
+.border-accent {
+  @apply border-l-4 border-jmc-green;
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+/* ─── Section label pill ────────────────────────────────────────────────── */
+.section-pill {
+  @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full
+         bg-jmc-green/10 border border-jmc-green/30
+         text-jmc-green text-sm font-semibold tracking-wider;
+}
+
+/* ─── Page hero (dark navy base) ────────────────────────────────────────── */
+.page-hero {
+  @apply relative overflow-hidden pt-24 pb-16
+         bg-gradient-to-br from-jmc-navy via-[#0f2233] to-[#0a1a10];
 }

@@ -477,7 +477,7 @@ export default function ExecutivesPage() {
             <div className="mt-10 flex flex-wrap justify-center gap-6">
               {[
                 { label: 'Total Members', value: executives.length },
-                { label: 'Departments', value: '10+' },
+               
                 { label: 'Active Since', value: '2024' },
               ].map((stat) => (
                 <div

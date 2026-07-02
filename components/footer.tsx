@@ -3,13 +3,13 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Share2, Mail, MapPin, Phone, Share } from 'lucide-react'
+import { Mail, MapPin, ExternalLink, Camera, Newspaper, Mic } from 'lucide-react'
 
 const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
+    width="18"
+    height="18"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -25,85 +25,163 @@ const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
+  const quickLinks = [
+    { label: 'Home',          href: '/' },
+    { label: 'About Us',      href: '/about' },
+    { label: 'Events',        href: '/events' },
+    { label: 'Gallery',       href: '/gallery' },
+    { label: 'Executives',    href: '/executives' },
+    { label: 'Blog',          href: '/blog' },
+    { label: 'Membership',    href: '/membership' },
+  ]
+
+  const pillars = [
+    { icon: Camera,    label: 'Photography' },
+    { icon: Newspaper, label: 'Journalism' },
+    { icon: Mic,       label: 'Broadcasting' },
+  ]
+
   return (
-    <footer className="bg-jmc-navy dark:bg-slate-950 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* About */}
-          <div>
-            <Image
-              src="/favicon.png"
-              alt="JMC Media Club logo"
-              width={120}
-              height={120}
-              className="w-24 h-auto mb-4"
-            />
-            <h3 className="font-montserrat font-bold text-lg mb-4">JMC Media Club</h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
+    <footer className="bg-jmc-navy dark:bg-jmc-bg-dark text-white">
+
+      {/* Top accent bar */}
+      <div className="h-1 bg-gradient-to-r from-jmc-dark-green via-jmc-green to-jmc-dark-green" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+          {/* Brand Column */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="inline-flex items-center gap-3 mb-5 group">
+              <div className="relative">
+                <div className="absolute -inset-1 rounded-xl bg-jmc-green/20 opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
+                <Image
+                  src="/favicon.png"
+                  alt="JMC Media Club logo"
+                  width={52}
+                  height={52}
+                  className="relative w-12 h-12 rounded-xl object-cover"
+                />
+              </div>
+              <div>
+                <p className="font-montserrat font-bold text-base leading-tight">JMC Media Club</p>
+                <p className="text-[11px] text-jmc-green font-semibold tracking-wide">Green University</p>
+              </div>
+            </Link>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Official student club of the Department of Journalism and Media Communication at Green University of Bangladesh.
             </p>
+            {/* Pillars */}
+            <div className="flex flex-wrap gap-2">
+              {pillars.map(({ icon: Icon, label }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-jmc-green/10 border border-jmc-green/20 text-jmc-green text-xs font-medium"
+                >
+                  <Icon size={12} />
+                  {label}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/" className="text-gray-300 hover:text-jmc-green transition-colors">Home</Link></li>
-              <li><Link href="/about" className="text-gray-300 hover:text-jmc-green transition-colors">About Us</Link></li>
-              <li><Link href="/events" className="text-gray-300 hover:text-jmc-green transition-colors">Events</Link></li>
-              <li><Link href="/gallery" className="text-gray-300 hover:text-jmc-green transition-colors">Gallery</Link></li>
+            <h4 className="font-montserrat font-semibold text-sm uppercase tracking-widest text-gray-400 mb-5">
+              Quick Links
+            </h4>
+            <ul className="space-y-2.5">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-300 hover:text-jmc-green text-sm transition-colors duration-200 flex items-center gap-1.5 group"
+                  >
+                    <span className="w-0 h-px bg-jmc-green transition-all duration-200 group-hover:w-3" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-3 text-sm text-gray-300">
-              <li className="flex items-start gap-3">
+            <h4 className="font-montserrat font-semibold text-sm uppercase tracking-widest text-gray-400 mb-5">
+              Contact
+            </h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-sm text-gray-300">
                 <MapPin size={16} className="text-jmc-green mt-0.5 flex-shrink-0" />
-                <span>Green University of Bangladesh, Purbachal American City, Kanchan, Rupganj, Narayanganj-1461, Dhaka, Bangladesh</span>
+                <span className="leading-relaxed">
+                  Green University of Bangladesh, Purbachal American City, Kanchan, Rupganj, Narayanganj‑1461
+                </span>
               </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-center gap-3 text-sm text-gray-300">
                 <Mail size={16} className="text-jmc-green flex-shrink-0" />
-                <a href="mailto:jmcmediaclub@gmail.com" className="hover:text-jmc-green transition-colors">jmcmediaclub@gmail.com</a>
+                <a
+                  href="mailto:jmcmediaclub@gmail.com"
+                  className="hover:text-jmc-green transition-colors"
+                >
+                  jmcmediaclub@gmail.com
+                </a>
               </li>
-
             </ul>
           </div>
 
-          {/* Social Links */}
+          {/* Social / Follow */}
           <div>
-            <h4 className="font-semibold mb-4">Follow Us</h4>
-            <div className="flex gap-4">
+            <h4 className="font-montserrat font-semibold text-sm uppercase tracking-widest text-gray-400 mb-5">
+              Follow Us
+            </h4>
+            <div className="flex gap-3 mb-6">
               <a
                 href="https://www.facebook.com/JMCMediaClub"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all"
+                className="group p-2.5 bg-white/5 hover:bg-jmc-green border border-white/10 hover:border-jmc-green text-gray-400 hover:text-white rounded-xl transition-all duration-200"
                 aria-label="Facebook Page"
               >
                 <FacebookIcon />
               </a>
               <a
                 href="mailto:jmcmediaclub@gmail.com"
-                className="p-2 bg-jmc-green/10 hover:bg-jmc-green text-jmc-green hover:text-white rounded-lg transition-all"
+                className="group p-2.5 bg-white/5 hover:bg-jmc-green border border-white/10 hover:border-jmc-green text-gray-400 hover:text-white rounded-xl transition-all duration-200"
                 aria-label="Email"
               >
-                <Mail size={20} />
+                <Mail size={18} />
               </a>
             </div>
+
+            {/* Join CTA */}
+            <Link
+              href="/membership"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-jmc-dark-green hover:bg-jmc-green text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow hover:shadow-lg hover:shadow-jmc-green/30 hover:-translate-y-0.5"
+            >
+              <Camera size={15} />
+              Join the Club
+            </Link>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              &copy; {currentYear} JMC Media Club. All rights reserved.
-            </p>
-            <div className="flex gap-6 text-sm text-gray-400">
-              <Link href="#" className="hover:text-jmc-green transition-colors">Privacy Policy</Link>
-              <Link href="#" className="hover:text-jmc-green transition-colors">Terms of Service</Link>
-            </div>
+        {/* Bottom bar */}
+        <div className="border-t border-white/8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+          <p>&copy; {currentYear} JMC Media Club. All rights reserved.</p>
+          <p>
+            Developed by{' '}
+            <a
+              href="https://www.linkedin.com/in/majharul-islam-m/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-jmc-green hover:text-jmc-green/80 transition-colors inline-flex items-center gap-1"
+            >
+              Majharul Islam
+              <ExternalLink size={12} />
+            </a>
+          </p>
+          <div className="flex gap-5">
+            <Link href="#" className="hover:text-jmc-green transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-jmc-green transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
