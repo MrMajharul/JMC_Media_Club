@@ -2,8 +2,8 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Calendar, Clock, MapPin, ArrowRight } from 'lucide-react'
+import { motion, type Variants } from 'framer-motion'
+import { Calendar, Clock, MapPin, ArrowRight, Camera, Mic, Video } from 'lucide-react'
 
 export default function FeaturedEvents() {
   const events = [
@@ -14,7 +14,8 @@ export default function FeaturedEvents() {
       time: '2:00 PM',
       venue: 'JMC Lab',
       category: 'Workshop',
-      image: 'bg-gradient-to-br from-blue-400 to-blue-600',
+      icon: Camera,
+      color: 'from-[#0f3d2e] to-[#1a6644]',
     },
     {
       id: 2,
@@ -23,7 +24,8 @@ export default function FeaturedEvents() {
       time: '3:30 PM',
       venue: 'Auditorium',
       category: 'Seminar',
-      image: 'bg-gradient-to-br from-purple-400 to-purple-600',
+      icon: Mic,
+      color: 'from-[#0D1B2A] to-[#1e3a5a]',
     },
     {
       id: 3,
@@ -32,103 +34,119 @@ export default function FeaturedEvents() {
       time: '10:00 AM',
       venue: 'Media Center',
       category: 'Competition',
-      image: 'bg-gradient-to-br from-pink-400 to-pink-600',
+      icon: Video,
+      color: 'from-[#0a2a1a] to-[#1a4a30]',
     },
   ]
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.18 } },
   }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 28 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
   }
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-900">
+    <section className="py-24 bg-white dark:bg-jmc-card-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
         <motion.div
-          className="flex justify-between items-end mb-12"
+          className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-14 gap-4"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <div>
-            <h2 className="font-montserrat font-bold text-4xl md:text-5xl mb-2 text-jmc-navy dark:text-white">
-              Upcoming <span className="text-gradient">Events</span>
+            <span className="section-pill mb-3">Upcoming</span>
+            <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-jmc-navy dark:text-white mt-3">
+              Featured <span className="text-gradient">Events</span>
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">Explore our latest activities and workshops</p>
+            <p className="text-gray-500 dark:text-gray-400 mt-2">Explore our latest activities and workshops</p>
           </div>
           <Link
             href="/events"
-            className="hidden md:flex items-center gap-2 text-jmc-green font-semibold hover:gap-3 transition-all"
+            className="hidden md:flex items-center gap-2 text-jmc-dark-green dark:text-jmc-green font-semibold text-sm hover:gap-3 transition-all group"
           >
             View All Events
-            <ArrowRight size={20} />
+            <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>
 
+        {/* Cards */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {events.map((event) => (
-            <motion.div
-              key={event.id}
-              className="group overflow-hidden rounded-xl border border-gray-200 dark:border-slate-700 hover:border-jmc-green/50 transition-all"
-              variants={itemVariants}
-              whileHover={{ y: -8 }}
-            >
-              <div className={`${event.image} h-40 flex items-end justify-start p-4`}>
-                <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-semibold">
-                  {event.category}
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-semibold text-lg mb-4 text-jmc-navy dark:text-white group-hover:text-jmc-green transition-colors">
-                  {event.title}
-                </h3>
-                <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-                  <div className="flex items-center gap-3">
-                    <Calendar size={16} className="text-jmc-green flex-shrink-0" />
-                    <span>{new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Clock size={16} className="text-jmc-green flex-shrink-0" />
-                    <span>{event.time}</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <MapPin size={16} className="text-jmc-green flex-shrink-0" />
-                    <span>{event.venue}</span>
+          {events.map((event) => {
+            const Icon = event.icon
+            return (
+              <motion.div
+                key={event.id}
+                className="group overflow-hidden rounded-2xl border border-gray-100 dark:border-white/5 hover:border-jmc-green/30 bg-white dark:bg-jmc-bg-dark shadow-sm hover:shadow-xl hover:shadow-jmc-green/10 transition-all duration-300"
+                variants={itemVariants}
+                whileHover={{ y: -6 }}
+              >
+                {/* Banner */}
+                <div className={`${event.color} h-40 flex items-end justify-between p-5 relative overflow-hidden`}>
+                  {/* Background pattern */}
+                  <div
+                    className="absolute inset-0 opacity-5"
+                    style={{
+                      backgroundImage: 'radial-gradient(circle at 50% 50%, #22C55E 1px, transparent 1px)',
+                      backgroundSize: '18px 18px',
+                    }}
+                  />
+                  <span className="relative px-3 py-1 bg-jmc-green/20 backdrop-blur-sm border border-jmc-green/30 rounded-full text-jmc-green text-xs font-semibold">
+                    {event.category}
+                  </span>
+                  <div className="relative w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                    <Icon className="text-white/80" size={20} />
                   </div>
                 </div>
-                <Link
-                  href={`/events/${event.id}`}
-                  className="text-jmc-green font-semibold text-sm hover:text-jmc-orange transition-colors flex items-center gap-1"
-                >
-                  Learn More
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="font-semibold text-lg mb-4 text-jmc-navy dark:text-white group-hover:text-jmc-green transition-colors duration-200">
+                    {event.title}
+                  </h3>
+                  <div className="space-y-2 text-sm text-gray-500 dark:text-gray-400 mb-5">
+                    <div className="flex items-center gap-3">
+                      <Calendar size={15} className="text-jmc-green flex-shrink-0" />
+                      <span>{new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Clock size={15} className="text-jmc-green flex-shrink-0" />
+                      <span>{event.time}</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <MapPin size={15} className="text-jmc-green flex-shrink-0" />
+                      <span>{event.venue}</span>
+                    </div>
+                  </div>
+                  <Link
+                    href={`/events/${event.id}`}
+                    className="inline-flex items-center gap-1.5 text-jmc-dark-green dark:text-jmc-green font-semibold text-sm hover:gap-2.5 transition-all duration-200"
+                  >
+                    Learn More
+                    <ArrowRight size={15} />
+                  </Link>
+                </div>
+              </motion.div>
+            )
+          })}
         </motion.div>
 
+        {/* Mobile "View All" */}
         <motion.div
-          className="mt-8 md:hidden text-center"
+          className="mt-10 md:hidden text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -136,10 +154,10 @@ export default function FeaturedEvents() {
         >
           <Link
             href="/events"
-            className="inline-flex items-center gap-2 text-jmc-green font-semibold hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-jmc-dark-green dark:text-jmc-green font-semibold hover:gap-3 transition-all"
           >
             View All Events
-            <ArrowRight size={20} />
+            <ArrowRight size={18} />
           </Link>
         </motion.div>
       </div>

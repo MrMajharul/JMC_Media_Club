@@ -311,7 +311,7 @@ const sections = [
   {
     label: 'Advisor & Special Role',
     icon: Star,
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-jmc-navy to-[#1e3a5a]',
     members: executives.filter((e) =>
       ['Moderator', 'Ambassador'].includes(e.role)
     ),
@@ -319,7 +319,7 @@ const sections = [
   {
     label: 'Core Leadership',
     icon: Award,
-    color: 'from-jmc-green to-jmc-orange',
+    color: 'from-jmc-dark-green to-jmc-green',
     members: executives.filter((e) =>
       ['President', 'Vice President', 'General Secretary', 'Joint Secretary'].includes(e.role)
     ),
@@ -327,7 +327,7 @@ const sections = [
   {
     label: 'Secretariat',
     icon: Users,
-    color: 'from-blue-500 to-cyan-400',
+    color: 'from-[#0f3d2e] to-[#166534]',
     members: executives.filter(
       (e) =>
         ![
@@ -344,7 +344,7 @@ const sections = [
   {
     label: 'Executive Members',
     icon: Users,
-    color: 'from-amber-500 to-orange-400',
+    color: 'from-jmc-dark to-jmc-navy',
     members: executives.filter((e) => e.role === 'Executive Member'),
   },
 ]
@@ -364,18 +364,18 @@ function MemberCard({ member }: { member: Executive }) {
 
   return (
     <motion.div
-      className="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 hover:border-jmc-green/40 hover:shadow-2xl hover:shadow-jmc-green/10 transition-all duration-300"
+      className="group relative overflow-hidden rounded-2xl bg-white dark:bg-jmc-card-dark border border-gray-100 dark:border-white/5 hover:border-jmc-green/40 hover:shadow-2xl hover:shadow-jmc-green/10 transition-all duration-300"
       variants={cardVariants}
       whileHover={{ y: -6 }}
     >
       {/* Top banner */}
-      <div className="h-20 bg-gradient-to-br from-jmc-green/20 via-jmc-orange/10 to-jmc-green/5 relative">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-jmc-orange via-transparent to-jmc-green" />
+      <div className="h-20 bg-gradient-to-br from-jmc-dark-green/20 via-jmc-green/10 to-jmc-navy/30 relative">
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #22C55E 1px, transparent 1px)', backgroundSize: '14px 14px' }} />
       </div>
 
       {/* Photo */}
       <div className="-mt-12 flex justify-center relative z-10 px-4">
-        <div className="w-24 h-24 rounded-full border-4 border-white dark:border-slate-800 shadow-lg overflow-hidden bg-gradient-to-br from-jmc-green to-jmc-orange flex items-center justify-center">
+        <div className="w-24 h-24 rounded-full border-4 border-white dark:border-jmc-card-dark shadow-lg overflow-hidden bg-gradient-to-br from-jmc-dark-green to-jmc-green flex items-center justify-center">
           {member.photo && !imgError ? (
             <Image
               src={member.photo}
@@ -398,7 +398,7 @@ function MemberCard({ member }: { member: Executive }) {
         <h3 className="font-semibold text-base text-jmc-navy dark:text-white leading-snug mb-1">
           {member.name}
         </h3>
-        <p className="text-jmc-green dark:text-jmc-green font-semibold text-xs mb-1 leading-snug">
+        <p className="text-jmc-green font-semibold text-xs mb-1 leading-snug uppercase tracking-wide">
           {member.role}
         </p>
         {member.id && (
@@ -412,12 +412,12 @@ function MemberCard({ member }: { member: Executive }) {
           <a
             href={`mailto:${member.email}`}
             title={member.email}
-            className="p-2 rounded-lg bg-gray-50 dark:bg-slate-700 hover:bg-jmc-green/10 transition-colors group/btn"
+            className="p-2 rounded-lg bg-gray-50 dark:bg-jmc-bg-dark hover:bg-jmc-green/10 transition-colors group/btn"
             aria-label={`Email ${member.name}`}
           >
             <Mail
               size={15}
-              className="text-gray-500 dark:text-gray-400 group-hover/btn:text-jmc-green transition-colors"
+              className="text-gray-400 group-hover/btn:text-jmc-green transition-colors"
             />
           </a>
           {member.facebookUrl && (
@@ -426,12 +426,12 @@ function MemberCard({ member }: { member: Executive }) {
               target="_blank"
               rel="noopener noreferrer"
               title="Facebook profile"
-              className="p-2 rounded-lg bg-gray-50 dark:bg-slate-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group/btn"
+              className="p-2 rounded-lg bg-gray-50 dark:bg-jmc-bg-dark hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group/btn"
               aria-label={`Facebook profile of ${member.name}`}
             >
               <FacebookIcon
                 size={15}
-                className="text-gray-500 dark:text-gray-400 group-hover/btn:text-blue-500 transition-colors"
+                className="text-gray-400 group-hover/btn:text-blue-500 transition-colors"
               />
             </a>
           )}
@@ -443,14 +443,18 @@ function MemberCard({ member }: { member: Executive }) {
 
 export default function ExecutivesPage() {
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-slate-950">
+    <main className="min-h-screen bg-jmc-light dark:bg-jmc-bg-dark">
       <Header />
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-24 pb-16 bg-gradient-to-br from-jmc-navy via-slate-800 to-slate-900">
-        {/* Decorative circles */}
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-jmc-green/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-jmc-orange/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="page-hero">
+        <div className="absolute inset-0 opacity-[0.04]" style={{
+          backgroundImage: 'linear-gradient(rgba(34,197,94,1) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,1) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }} />
+        {/* Decorative circles — green only */}
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-jmc-green/8 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-jmc-dark-green/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -459,26 +463,21 @@ export default function ExecutivesPage() {
             transition={{ duration: 0.7 }}
             className="text-center"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-jmc-green/20 text-jmc-green text-sm font-semibold mb-4 border border-jmc-green/30">
-              Session 2025–26
-            </span>
-            <h1 className="font-montserrat font-bold text-5xl md:text-6xl text-white mb-4">
+            <span className="section-pill mb-4">Session 2025–26</span>
+            <h1 className="font-montserrat font-bold text-5xl md:text-6xl text-white mt-4 mb-4">
               Executive{' '}
-              <span className="bg-gradient-to-r from-jmc-green to-jmc-orange bg-clip-text text-transparent">
-                Committee
-              </span>
+              <span className="text-gradient-light">Committee</span>
             </h1>
-            <p className="text-gray-300 text-lg max-w-xl mx-auto">
+            <p className="text-gray-400 text-lg max-w-xl mx-auto">
               Meet the dedicated team driving innovation, creativity, and
               excellence at JMC Media Club, Green University.
             </p>
 
             {/* Stats row */}
-            <div className="mt-10 flex flex-wrap justify-center gap-6">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               {[
                 { label: 'Total Members', value: executives.length },
-                { label: 'Departments', value: '10+' },
-                { label: 'Active Since', value: '2024' },
+                { label: 'Active Since',  value: '2024' },
               ].map((stat) => (
                 <div
                   key={stat.label}
@@ -522,7 +521,7 @@ export default function ExecutivesPage() {
                     {section.members.length === 1 ? 'member' : 'members'}
                   </p>
                 </div>
-                <div className="flex-1 h-px bg-gradient-to-r from-gray-200 dark:from-slate-700 to-transparent ml-4" />
+                <div className="flex-1 h-px bg-gradient-to-r from-jmc-green/20 dark:from-jmc-green/15 to-transparent ml-4" />
               </motion.div>
 
               {/* Cards */}
