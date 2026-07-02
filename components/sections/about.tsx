@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import { Target, Eye, Lightbulb } from 'lucide-react'
 
 export default function About() {
@@ -26,7 +26,7 @@ export default function About() {
     },
   ]
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -34,12 +34,12 @@ export default function About() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 28 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.65, ease: 'easeOut' },
+      transition: { duration: 0.65 },
     },
   }
 
