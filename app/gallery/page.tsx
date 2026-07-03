@@ -55,7 +55,7 @@ export default function GalleryPage() {
               <Camera size={14} />
               Media Portfolio
             </span>
-            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-white">
+            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-jmc-navy dark:text-white">
               Our <span className="text-gradient-light">Gallery</span>
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl">
@@ -86,13 +86,13 @@ export default function GalleryPage() {
                   onClick={() => setSelectedCategory(category.toLowerCase())}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 ${
                     isActive
-                      ? 'bg-jmc-dark-green text-white shadow-md shadow-jmc-green/20'
+                      ? 'bg-jmc-dark-green text-jmc-navy dark:text-white shadow-md shadow-jmc-green/20'
                       : 'bg-white dark:bg-jmc-card-dark text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-white/5 hover:border-jmc-green/30 hover:text-jmc-dark-green dark:hover:text-jmc-green'
                   }`}
                 >
                   {category}
                   <span className={`text-xs px-1.5 py-0.5 rounded-full font-bold ${
-                    isActive ? 'bg-white/20 text-white' : 'bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400'
+                    isActive ? 'bg-white/20 text-jmc-navy dark:text-white' : 'bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400'
                   }`}>
                     {count}
                   </span>
@@ -127,12 +127,12 @@ export default function GalleryPage() {
 
                     {/* Center camera icon */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <Camera size={36} className="text-white/20" />
+                      <Camera size={36} className="text-jmc-navy dark:text-white/20" />
                     </div>
                   </div>
 
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-jmc-navy/0 group-hover:bg-jmc-navy/75 transition-all duration-350 flex items-end">
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-white/0 dark:bg-jmc-navy/0 group-hover:bg-white/75 dark:group-hover:bg-jmc-navy/75 transition-all duration-350 flex items-end">
                     <div className="w-full p-5 translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2">
@@ -142,10 +142,10 @@ export default function GalleryPage() {
                           </span>
                         </div>
                         <div className="w-8 h-8 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
-                          <ZoomIn size={14} className="text-white" />
+                          <ZoomIn size={14} className="text-jmc-navy dark:text-white" />
                         </div>
                       </div>
-                      <p className="text-white font-semibold text-sm leading-snug">{image.title}</p>
+                      <p className="text-jmc-navy dark:text-white font-semibold text-sm leading-snug">{image.title}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -163,14 +163,14 @@ export default function GalleryPage() {
 
           {/* CTA strip */}
           <motion.div
-            className="mt-16 p-8 rounded-2xl bg-jmc-navy border border-jmc-green/10 text-center"
+            className="mt-16 p-8 rounded-2xl bg-gray-50 dark:bg-jmc-navy border border-jmc-green/10 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
             <Camera size={32} className="text-jmc-green mx-auto mb-4" />
-            <h3 className="font-montserrat font-bold text-xl text-white mb-2">Want to contribute?</h3>
+            <h3 className="font-montserrat font-bold text-xl text-jmc-navy dark:text-white mb-2">Want to contribute?</h3>
             <p className="text-gray-400 text-sm mb-5 max-w-sm mx-auto">
               Join JMC Media Club and have your work featured in our gallery.
             </p>

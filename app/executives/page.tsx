@@ -388,7 +388,7 @@ function MemberCard({ member }: { member: Executive }) {
               onError={() => setImgError(true)}
             />
           ) : (
-            <span className="text-white font-bold text-2xl select-none">
+            <span className="text-jmc-navy dark:text-white font-bold text-2xl select-none">
               {member.initials}
             </span>
           )}
@@ -466,7 +466,7 @@ export default function ExecutivesPage() {
             className="text-center"
           >
             <span className="section-pill mb-4">Session 2025–26</span>
-            <h1 className="font-montserrat font-bold text-5xl md:text-6xl text-white mt-4 mb-4">
+            <h1 className="font-montserrat font-bold text-5xl md:text-6xl text-jmc-navy dark:text-white mt-4 mb-4">
               Executive{' '}
               <span className="text-gradient-light">Committee</span>
             </h1>
@@ -512,7 +512,7 @@ export default function ExecutivesPage() {
                 <div
                   className={`w-10 h-10 rounded-xl bg-gradient-to-br ${section.color} flex items-center justify-center shadow-lg`}
                 >
-                  <Icon size={18} className="text-white" />
+                  <Icon size={18} className="text-jmc-navy dark:text-white" />
                 </div>
                 <div>
                   <h2 className="font-montserrat font-bold text-2xl text-jmc-navy dark:text-white">

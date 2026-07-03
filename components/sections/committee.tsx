@@ -73,7 +73,7 @@ export default function Committee() {
                   <div className="absolute inset-0 rounded-full border-2 border-jmc-green/20 group-hover:border-jmc-green/60 transition-colors duration-300 scale-110" />
                   {/* Avatar circle */}
                   <div className="w-20 h-20 rounded-full bg-gradient-to-br from-jmc-dark-green to-jmc-green flex items-center justify-center shadow-lg group-hover:shadow-jmc-green/40 transition-shadow duration-300">
-                    <span className="text-white font-bold text-xl select-none">{member.initials}</span>
+                    <span className="text-jmc-navy dark:text-white font-bold text-xl select-none">{member.initials}</span>
                   </div>
                 </div>
               </div>

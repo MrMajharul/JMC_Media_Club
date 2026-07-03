@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, type Variants } from 'framer-motion'
 import { ArrowRight, Camera, Users, Trophy, BookOpen, Play } from 'lucide-react'
-
+import FloatingBackground from './floating-background'
 const floatingBadges = [
   { icon: Users,    value: '500+',  label: 'Members',       delay: 0 },
   { icon: Trophy,   value: '50+',   label: 'Achievements',  delay: 0.15 },
@@ -32,10 +32,11 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden bg-jmc-navy">
+    <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden bg-gray-50 dark:bg-jmc-navy">
 
       {/* ── Grid overlay ───────────────────────────────────────────────── */}
       <div className="absolute inset-0 grid-pattern opacity-100" />
+      <FloatingBackground />
 
       {/* ── Ambient glows ──────────────────────────────────────────────── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -84,7 +85,7 @@ export default function HeroSection() {
 
             {/* Headline */}
             <motion.h1
-              className="font-montserrat font-bold text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] leading-[1.06] text-white"
+              className="font-montserrat font-bold text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] leading-[1.06] text-jmc-navy dark:text-white"
               variants={itemVariants}
             >
               Capture.{' '}
@@ -119,7 +120,7 @@ export default function HeroSection() {
               </Link>
               <Link
                 href="/events"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/15 hover:border-jmc-green/40 text-white hover:text-jmc-green font-semibold rounded-xl backdrop-blur-sm bg-white/5 hover:bg-jmc-green/5 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/15 hover:border-jmc-green/40 text-jmc-navy dark:text-white hover:text-jmc-green font-semibold rounded-xl backdrop-blur-sm bg-white/5 hover:bg-jmc-green/5 transition-all duration-200"
                 id="hero-events-cta"
               >
                 <Play size={15} className="fill-current" />
@@ -135,12 +136,12 @@ export default function HeroSection() {
               <div className="flex -space-x-2">
                 {['EM', 'SN', 'SS', 'SH'].map((init) => (
                   <div key={init} className="w-8 h-8 rounded-full bg-gradient-to-br from-jmc-dark-green to-jmc-green border-2 border-jmc-navy flex items-center justify-center">
-                    <span className="text-white text-[9px] font-bold">{init}</span>
+                    <span className="text-jmc-navy dark:text-white text-[9px] font-bold">{init}</span>
                   </div>
                 ))}
               </div>
               <p className="text-sm text-gray-400">
-                <span className="text-white font-semibold">500+</span> active members joined
+                <span className="text-jmc-navy dark:text-white font-semibold">500+</span> active members joined
               </p>
             </motion.div>
           </motion.div>
@@ -191,7 +192,7 @@ export default function HeroSection() {
                       <Icon size={15} className="text-jmc-green" />
                     </div>
                   </div>
-                  <p className="font-montserrat font-bold text-xl text-white">{value}</p>
+                  <p className="font-montserrat font-bold text-xl text-jmc-navy dark:text-white">{value}</p>
                   <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">{label}</p>
                 </motion.div>
               ))}

@@ -59,7 +59,7 @@ export default function AboutPage() {
             transition={{ duration: 0.7 }}
           >
             <span className="section-pill mb-4">Our Story</span>
-            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-white">
+            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-jmc-navy dark:text-white">
               About <span className="text-gradient-light">JMC Media Club</span>
             </h1>
             <p className="text-lg text-gray-400 max-w-3xl">
@@ -73,7 +73,7 @@ export default function AboutPage() {
               {focusAreas.map(({ icon: Icon, title }) => (
                 <div key={title} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-white/12 backdrop-blur-sm">
                   <Icon size={13} className="text-jmc-green" />
-                  <span className="text-white text-sm font-medium">{title}</span>
+                  <span className="text-jmc-navy dark:text-white text-sm font-medium">{title}</span>
                 </div>
               ))}
             </div>
@@ -159,7 +159,7 @@ export default function AboutPage() {
 
           {/* Values strip */}
           <motion.div
-            className="p-8 rounded-2xl bg-jmc-navy border border-jmc-green/10 flex flex-wrap justify-center gap-8"
+            className="p-8 rounded-2xl bg-gray-50 dark:bg-jmc-navy border border-jmc-green/10 flex flex-wrap justify-center gap-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
@@ -168,7 +168,7 @@ export default function AboutPage() {
             <p className="w-full text-center text-gray-500 text-xs uppercase tracking-widest font-semibold mb-2">Our Core Values</p>
             {values.map((val, i) => (
               <div key={val} className="flex items-center gap-3">
-                <div className="flex items-center gap-2.5 text-white">
+                <div className="flex items-center gap-2.5 text-jmc-navy dark:text-white">
                   <CheckCircle size={16} className="text-jmc-green" />
                   <span className="font-semibold text-base">{val}</span>
                 </div>

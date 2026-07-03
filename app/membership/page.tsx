@@ -84,7 +84,7 @@ export default function MembershipPage() {
               <Camera size={14} />
               Join the Club
             </span>
-            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-white">
+            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-jmc-navy dark:text-white">
               Join <span className="text-gradient-light">JMC Media Club</span>
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl">
@@ -100,7 +100,7 @@ export default function MembershipPage() {
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-white/12 backdrop-blur-sm">
                   <Icon size={13} className="text-jmc-green" />
-                  <span className="text-white text-sm font-medium">{text}</span>
+                  <span className="text-jmc-navy dark:text-white text-sm font-medium">{text}</span>
                 </div>
               ))}
             </div>
@@ -233,12 +233,12 @@ export default function MembershipPage() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="p-12 rounded-2xl bg-jmc-navy text-center border border-jmc-green/10"
+                className="p-12 rounded-2xl bg-gray-50 dark:bg-jmc-navy text-center border border-jmc-green/10"
               >
                 <div className="w-20 h-20 rounded-full bg-jmc-green/20 flex items-center justify-center mx-auto mb-6">
                   <Check className="text-jmc-green" size={36} />
                 </div>
-                <h3 className="font-montserrat font-bold text-2xl text-white mb-3">Application Submitted!</h3>
+                <h3 className="font-montserrat font-bold text-2xl text-jmc-navy dark:text-white mb-3">Application Submitted!</h3>
                 <p className="text-gray-400 max-w-sm mx-auto text-sm leading-relaxed">
                   We&apos;ll review your application and get back to you within 3–5 working days. Welcome to the JMC family!
                 </p>

@@ -51,7 +51,7 @@ export default function ContactPage() {
               <MessageSquare size={14} />
               Contact Us
             </span>
-            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-white">
+            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-jmc-navy dark:text-white">
               Get in <span className="text-gradient-light">Touch</span>
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl">

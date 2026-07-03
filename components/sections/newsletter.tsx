@@ -29,7 +29,7 @@ export default function Newsletter() {
     <section className="py-20 bg-jmc-light dark:bg-jmc-bg-dark">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="relative bg-jmc-navy rounded-3xl p-10 md:p-14 overflow-hidden border border-jmc-green/10"
+          className="relative bg-gray-50 dark:bg-jmc-navy rounded-3xl p-10 md:p-14 overflow-hidden border border-jmc-green/10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -47,7 +47,7 @@ export default function Newsletter() {
             </div>
 
             <span className="section-pill mb-5">Stay Informed</span>
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white mt-4 mb-3">
+            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-jmc-navy dark:text-white mt-4 mb-3">
               Subscribe to{' '}
               <span className="text-gradient-light">Media Pulse</span>
             </h2>
@@ -78,7 +78,7 @@ export default function Newsletter() {
                   <div className="w-14 h-14 rounded-full bg-jmc-green/20 flex items-center justify-center">
                     <CheckCircle size={28} className="text-jmc-green" />
                   </div>
-                  <p className="text-white font-bold text-lg">You&apos;re subscribed!</p>
+                  <p className="text-jmc-navy dark:text-white font-bold text-lg">You&apos;re subscribed!</p>
                   <p className="text-gray-400 text-sm">Welcome to Media Pulse. Check your inbox for confirmation.</p>
                   <button
                     onClick={() => setState('idle')}
@@ -103,7 +103,7 @@ export default function Newsletter() {
                       value={email}
                       onChange={e => setEmail(e.target.value)}
                       placeholder="Enter your email address"
-                      className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/8 border border-white/12 text-white placeholder-gray-500 focus:outline-none focus:border-jmc-green focus:ring-2 focus:ring-jmc-green/20 transition-all duration-200"
+                      className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/8 border border-white/12 text-jmc-navy dark:text-white placeholder-gray-500 focus:outline-none focus:border-jmc-green focus:ring-2 focus:ring-jmc-green/20 transition-all duration-200"
                       required
                       id="newsletter-email"
                     />

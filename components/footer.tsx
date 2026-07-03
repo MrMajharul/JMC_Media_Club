@@ -32,7 +32,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-jmc-navy text-white">
+    <footer className="bg-gray-50 dark:bg-jmc-navy text-jmc-navy dark:text-white">
 
       {/* Top accent */}
       <div className="h-1 bg-gradient-to-r from-jmc-dark-green via-jmc-green to-jmc-dark-green" />
@@ -85,14 +85,14 @@ export default function Footer() {
                 href="https://www.facebook.com/JMCMediaClub"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-white/5 hover:bg-jmc-green border border-white/8 hover:border-jmc-green text-gray-400 hover:text-white rounded-xl transition-all duration-200"
+                className="p-2.5 bg-white/5 hover:bg-jmc-green border border-white/8 hover:border-jmc-green text-gray-400 hover:text-jmc-navy dark:text-white rounded-xl transition-all duration-200"
                 aria-label="Facebook Page"
               >
                 <FacebookIcon />
               </a>
               <a
                 href="mailto:jmcmediaclub@gmail.com"
-                className="p-2.5 bg-white/5 hover:bg-jmc-green border border-white/8 hover:border-jmc-green text-gray-400 hover:text-white rounded-xl transition-all duration-200"
+                className="p-2.5 bg-white/5 hover:bg-jmc-green border border-white/8 hover:border-jmc-green text-gray-400 hover:text-jmc-navy dark:text-white rounded-xl transition-all duration-200"
                 aria-label="Email"
               >
                 <Mail size={18} />

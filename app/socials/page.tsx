@@ -44,7 +44,7 @@ export default function SocialsPage() {
             transition={{ duration: 0.7 }}
           >
             <span className="section-pill mb-4">Stay Connected</span>
-            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-white">
+            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-jmc-navy dark:text-white">
               Follow <span className="text-gradient-light">Our Story</span>
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl">
@@ -74,13 +74,13 @@ export default function SocialsPage() {
                   <div className={`${item.color} p-8 flex items-center gap-6`}>
                     {/* Icon circle */}
                     <div className="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
-                      <Icon size={32} className="text-white" />
+                      <Icon size={32} className="text-jmc-navy dark:text-white" />
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <p className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-0.5">{item.handle}</p>
-                      <h3 className="text-white font-bold text-xl mb-1">{item.label}</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">{item.description}</p>
+                      <p className="text-jmc-navy dark:text-white/70 text-xs font-semibold uppercase tracking-wider mb-0.5">{item.handle}</p>
+                      <h3 className="text-jmc-navy dark:text-white font-bold text-xl mb-1">{item.label}</h3>
+                      <p className="text-jmc-navy dark:text-white/70 text-sm leading-relaxed">{item.description}</p>
                     </div>
 
                     <a

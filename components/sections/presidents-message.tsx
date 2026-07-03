@@ -53,7 +53,7 @@ export default function PresidentMessage() {
                   <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, rgba(34,197,94,0.08) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
                   {/* Fallback initials */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-white/10 font-black text-[8rem] font-montserrat select-none">{president.initials}</span>
+                    <span className="text-jmc-navy dark:text-white/10 font-black text-[8rem] font-montserrat select-none">{president.initials}</span>
                   </div>
                   <Image
                     src={president.photo}
@@ -84,7 +84,7 @@ export default function PresidentMessage() {
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               >
                 <Quote size={18} className="text-jmc-green mb-2" />
-                <p className="text-white text-xs leading-relaxed font-medium italic">
+                <p className="text-jmc-navy dark:text-white text-xs leading-relaxed font-medium italic">
                   &ldquo;{president.quote}&rdquo;
                 </p>
               </motion.div>
@@ -127,7 +127,7 @@ export default function PresidentMessage() {
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-jmc-dark-green to-jmc-green flex items-center justify-center -z-10">
-                  <span className="text-white font-bold text-sm">{president.initials}</span>
+                  <span className="text-jmc-navy dark:text-white font-bold text-sm">{president.initials}</span>
                 </div>
               </div>
               <div>

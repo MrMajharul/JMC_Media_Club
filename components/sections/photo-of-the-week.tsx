@@ -61,7 +61,7 @@ export default function PhotoOfTheWeek() {
               {/* Subject silhouette */}
               <div className="absolute inset-0 flex items-end justify-center pb-0">
                 <div className="w-full h-3/4 relative flex items-end justify-center">
-                  <Camera size={80} className="text-white/8 mb-20" />
+                  <Camera size={80} className="text-jmc-navy dark:text-white/8 mb-20" />
                 </div>
               </div>
 
@@ -70,7 +70,7 @@ export default function PhotoOfTheWeek() {
 
               {/* Hover zoom icon */}
               <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Eye size={16} className="text-white" />
+                <Eye size={16} className="text-jmc-navy dark:text-white" />
               </div>
 
               {/* Week badge */}
@@ -84,10 +84,10 @@ export default function PhotoOfTheWeek() {
                 <p className="text-jmc-green text-xs font-semibold uppercase tracking-widest mb-2">
                   📍 Green University Campus
                 </p>
-                <h3 className="text-white font-montserrat font-bold text-2xl leading-snug">
+                <h3 className="text-jmc-navy dark:text-white font-montserrat font-bold text-2xl leading-snug">
                   &ldquo;Morning Light, Building A&rdquo;
                 </h3>
-                <p className="text-white/60 text-sm mt-1">Captured at 6:17 AM, natural light</p>
+                <p className="text-jmc-navy dark:text-white/60 text-sm mt-1">Captured at 6:17 AM, natural light</p>
               </div>
             </div>
           </motion.div>
@@ -104,7 +104,7 @@ export default function PhotoOfTheWeek() {
             <div className="p-7 rounded-2xl bg-white dark:bg-jmc-card-dark border border-gray-100 dark:border-white/5 shadow-sm">
               <div className="flex items-center gap-4 mb-5">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-jmc-dark-green to-jmc-green flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-lg">TH</span>
+                  <span className="text-jmc-navy dark:text-white font-bold text-lg">TH</span>
                 </div>
                 <div>
                   <p className="text-xs text-jmc-green font-semibold uppercase tracking-wider mb-0.5">Photographer</p>

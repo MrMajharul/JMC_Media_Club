@@ -120,7 +120,7 @@ export default function FeaturedStories() {
                       <Icon size={11} /> {featured.category}
                     </span>
                   )})()}
-                  <p className="text-white font-bold text-xl md:text-2xl leading-snug max-w-lg font-montserrat">{featured.title}</p>
+                  <p className="text-jmc-navy dark:text-white font-bold text-xl md:text-2xl leading-snug max-w-lg font-montserrat">{featured.title}</p>
                 </div>
               </div>
               <span className="absolute top-5 right-5 px-2.5 py-1 bg-jmc-green text-white text-[10px] font-bold rounded-full uppercase tracking-wider">Featured</span>
@@ -131,7 +131,7 @@ export default function FeaturedStories() {
               <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-white/5">
                 <div className="flex items-center gap-3 text-xs text-gray-400">
                   <div className="w-7 h-7 rounded-full bg-jmc-dark-green flex items-center justify-center">
-                    <span className="text-white text-[9px] font-bold">{featured.author.slice(0,2).toUpperCase()}</span>
+                    <span className="text-jmc-navy dark:text-white text-[9px] font-bold">{featured.author.slice(0,2).toUpperCase()}</span>
                   </div>
                   <span>{featured.author}</span>
                   <span>·</span>

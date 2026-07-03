@@ -115,7 +115,7 @@ export default function LeadershipMessages() {
                         />
                         {/* Fallback initials */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-white font-bold text-xl select-none">{leader.initials}</span>
+                          <span className="text-jmc-navy dark:text-white font-bold text-xl select-none">{leader.initials}</span>
                         </div>
                       </div>
                     </div>

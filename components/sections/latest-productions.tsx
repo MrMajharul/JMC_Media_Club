@@ -97,7 +97,7 @@ export default function LatestProductions() {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
 
   return (
-    <section className="py-24 bg-jmc-navy relative overflow-hidden">
+    <section className="py-24 bg-gray-50 dark:bg-jmc-navy relative overflow-hidden">
       {/* Grid pattern */}
       <div className="absolute inset-0 grid-pattern opacity-100" />
       {/* Ambient glow */}
@@ -116,7 +116,7 @@ export default function LatestProductions() {
         >
           <div>
             <span className="section-pill mb-4">Productions</span>
-            <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-white mt-3">
+            <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-jmc-navy dark:text-white mt-3">
               Latest <span className="text-gradient-light">Productions</span>
             </h2>
             <p className="text-gray-400 mt-2 max-w-lg">
@@ -163,16 +163,16 @@ export default function LatestProductions() {
                     animate={{ scale: isHovered ? 1.15 : 1 }}
                     transition={{ duration: 0.25 }}
                   >
-                    <Play size={22} className="text-white fill-white ml-1" />
+                    <Play size={22} className="text-jmc-navy dark:text-white fill-white ml-1" />
                   </motion.div>
 
                   {/* Duration */}
-                  <div className="absolute bottom-3 right-3 px-2.5 py-1 bg-black/60 backdrop-blur-sm rounded-lg text-white text-xs font-semibold flex items-center gap-1.5">
+                  <div className="absolute bottom-3 right-3 px-2.5 py-1 bg-black/60 backdrop-blur-sm rounded-lg text-jmc-navy dark:text-white text-xs font-semibold flex items-center gap-1.5">
                     <Clock size={11} /> {prod.duration}
                   </div>
 
                   {/* View count */}
-                  <div className="absolute bottom-3 left-3 px-2.5 py-1 bg-black/60 backdrop-blur-sm rounded-lg text-white text-xs font-semibold flex items-center gap-1.5">
+                  <div className="absolute bottom-3 left-3 px-2.5 py-1 bg-black/60 backdrop-blur-sm rounded-lg text-jmc-navy dark:text-white text-xs font-semibold flex items-center gap-1.5">
                     <Eye size={11} /> {prod.views}
                   </div>
                 </div>
@@ -185,11 +185,11 @@ export default function LatestProductions() {
                     </span>
                     <span className="text-xs text-gray-500 ml-auto">{prod.year}</span>
                   </div>
-                  <h3 className="font-montserrat font-bold text-sm text-white group-hover:text-jmc-green transition-colors leading-snug mb-2 line-clamp-2">
+                  <h3 className="font-montserrat font-bold text-sm text-jmc-navy dark:text-white group-hover:text-jmc-green transition-colors leading-snug mb-2 line-clamp-2">
                     {prod.title}
                   </h3>
                   <p className="text-gray-400 text-xs leading-relaxed mb-5 line-clamp-2">{prod.description}</p>
-                  <button className="w-full py-2.5 flex items-center justify-center gap-2 text-xs font-semibold rounded-xl border border-jmc-green/25 hover:border-jmc-green text-jmc-green hover:bg-jmc-green hover:text-white transition-all duration-200">
+                  <button className="w-full py-2.5 flex items-center justify-center gap-2 text-xs font-semibold rounded-xl border border-jmc-green/25 hover:border-jmc-green text-jmc-green hover:bg-jmc-green hover:text-jmc-navy dark:text-white transition-all duration-200">
                     <Play size={13} className="fill-current" />
                     Watch Now
                   </button>
