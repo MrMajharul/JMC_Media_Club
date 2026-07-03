@@ -369,8 +369,10 @@ function MemberCard({ member }: { member: Executive }) {
       whileHover={{ y: -6 }}
     >
       {/* Top banner */}
-      <div className="h-20 bg-gradient-to-br from-jmc-dark-green/20 via-jmc-green/10 to-jmc-navy/30 relative">
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #22C55E 1px, transparent 1px)', backgroundSize: '14px 14px' }} />
+      <div className="h-20 bg-gradient-to-br from-jmc-dark-green/25 via-jmc-green/15 to-jmc-navy/40 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'radial-gradient(circle, rgba(34,197,94,0.4) 1px, transparent 1px)', backgroundSize: '14px 14px' }} />
+        {/* Shimmer line */}
+        <div className="absolute inset-y-0 -left-full w-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:left-full transition-all duration-700 ease-in-out" />
       </div>
 
       {/* Photo */}
@@ -521,7 +523,7 @@ export default function ExecutivesPage() {
                     {section.members.length === 1 ? 'member' : 'members'}
                   </p>
                 </div>
-                <div className="flex-1 h-px bg-gradient-to-r from-jmc-green/20 dark:from-jmc-green/15 to-transparent ml-4" />
+                <div className="flex-1 h-px bg-gradient-to-r from-jmc-green/30 dark:from-jmc-green/20 to-transparent ml-4" />
               </motion.div>
 
               {/* Cards */}

@@ -3,14 +3,14 @@
 import React from 'react'
 import Link from 'next/link'
 import { motion, type Variants } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Mail } from 'lucide-react'
 
 export default function Committee() {
   const committee = [
-    { id: 1, name: 'Dr. Ahmed Hassan',  role: 'Faculty Advisor',    bio: 'Lead mentor and faculty advisor', initials: 'AH' },
-    { id: 2, name: 'Faisal Riyad',      role: 'President',          bio: 'Leading the media club vision',   initials: 'FR' },
-    { id: 3, name: 'Saida Khan',        role: 'Vice President',     bio: 'Co-leading media initiatives',    initials: 'SK' },
-    { id: 4, name: 'Rabiul Islam',      role: 'General Secretary',  bio: 'Managing club operations',        initials: 'RI' },
+    { id: 1, name: 'Emu Akter Mim',      role: 'President',          bio: 'Leading the media club vision with passion',   initials: 'EM', email: 'emuaktermim@gmail.com' },
+    { id: 2, name: 'Sadia Afrin Nijhum', role: 'Vice President',     bio: 'Co-leading media and creative initiatives',    initials: 'SN', email: 'nijhumsabira2002@gmail.com' },
+    { id: 3, name: 'Sabikun Islam Shorna',role: 'General Secretary',  bio: 'Managing club operations & communications',    initials: 'SS', email: 'Sabikunswarnaa@gmail.com' },
+    { id: 4, name: 'Sakib Al Hasan',     role: 'Joint Secretary',     bio: 'Supporting operations and student engagement', initials: 'SH', email: 'sakibalhasanjmc@gmail.com' },
   ]
 
   const containerVariants: Variants = {
@@ -62,7 +62,7 @@ export default function Committee() {
           {committee.map((member) => (
             <motion.div
               key={member.id}
-              className="group p-7 rounded-2xl bg-white dark:bg-jmc-card-dark border border-gray-100 dark:border-white/5 hover:border-jmc-green/30 dark:hover:border-jmc-green/20 shadow-sm hover:shadow-xl hover:shadow-jmc-green/10 transition-all duration-300 text-center"
+              className="group relative p-7 rounded-2xl bg-white dark:bg-jmc-card-dark border border-gray-100 dark:border-white/5 hover:border-jmc-green/30 dark:hover:border-jmc-green/20 shadow-sm hover:shadow-xl hover:shadow-jmc-green/10 transition-all duration-300 text-center"
               variants={itemVariants}
               whileHover={{ y: -6 }}
             >
@@ -81,12 +81,21 @@ export default function Committee() {
               <h3 className="font-semibold text-base text-jmc-navy dark:text-white mb-1 leading-snug">
                 {member.name}
               </h3>
-              <p className="text-jmc-green font-semibold text-xs mb-2 uppercase tracking-wide">
+              <p className="text-jmc-green font-semibold text-xs mb-2.5 uppercase tracking-wide">
                 {member.role}
               </p>
-              <p className="text-gray-400 dark:text-gray-500 text-xs leading-relaxed">
+              <p className="text-gray-400 dark:text-gray-500 text-xs leading-relaxed mb-4">
                 {member.bio}
               </p>
+
+              {/* Email link */}
+              <a
+                href={`mailto:${member.email}`}
+                className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-jmc-green transition-colors duration-250"
+              >
+                <Mail size={12} />
+                <span>Contact</span>
+              </a>
             </motion.div>
           ))}
         </motion.div>

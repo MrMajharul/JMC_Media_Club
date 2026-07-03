@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Poppins, Montserrat } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
+import ScrollProgress from '@/components/ui/scroll-progress'
+import BackToTop from '@/components/ui/back-to-top'
 import './globals.css'
 
 const poppins = Poppins({
@@ -16,9 +18,9 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'JMC Media Club | Green University of Bangladesh',
-  description: 'Official website of JMC Media Club - Department of Journalism and Media Communication at Green University of Bangladesh',
-  keywords: ['journalism', 'media', 'communication', 'club', 'events', 'green university'],
+  title: 'JMC Media Club | Amplify Your Voice | Green University of Bangladesh',
+  description: "Official website of JMC Media Club — Bangladesh's premier student media organization at Green University. Journalism, photography, filmmaking, and storytelling.",
+  keywords: ['journalism', 'media club', 'communication', 'photography', 'documentary', 'green university', 'JMC', 'Bangladesh'],
   authors: [{ name: 'JMC Media Club' }],
   icons: {
     icon: '/favicon.png',
@@ -28,12 +30,12 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://jmc.green.edu.bd',
-    title: 'JMC Media Club',
+    title: 'JMC Media Club — Amplify Your Voice',
     description: 'Official website of JMC Media Club at Green University of Bangladesh',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'JMC Media Club',
+    title: 'JMC Media Club — Amplify Your Voice',
     description: 'Official website of JMC Media Club at Green University of Bangladesh',
   },
 }
@@ -52,7 +54,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollProgress />
           {children}
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>
