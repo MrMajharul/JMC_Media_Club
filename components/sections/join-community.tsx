@@ -91,7 +91,7 @@ export default function JoinCommunity() {
             viewport={{ once: true }}
           >
             {/* Main CTA card */}
-            <div className="relative bg-jmc-navy rounded-3xl p-10 overflow-hidden border border-jmc-green/10">
+            <div className="relative bg-gray-50 dark:bg-jmc-navy rounded-3xl p-10 overflow-hidden border border-jmc-green/10">
               {/* Inner grid */}
               <div className="absolute inset-0 grid-pattern" />
               <div className="absolute top-0 right-0 w-64 h-64 bg-jmc-green/6 rounded-full blur-3xl" />
@@ -106,7 +106,7 @@ export default function JoinCommunity() {
                           <Icon size={18} className="text-jmc-green" />
                         </div>
                       </div>
-                      <p className="font-montserrat font-bold text-3xl text-white">{value}</p>
+                      <p className="font-montserrat font-bold text-3xl text-jmc-navy dark:text-white">{value}</p>
                       <p className="text-gray-400 text-xs mt-0.5">{label}</p>
                     </div>
                   ))}
@@ -114,7 +114,7 @@ export default function JoinCommunity() {
 
                 {/* Quote */}
                 <div className="border-t border-white/8 pt-8">
-                  <p className="text-white/80 italic text-base leading-relaxed text-center mb-4">
+                  <p className="text-jmc-navy dark:text-white/80 italic text-base leading-relaxed text-center mb-4">
                     &ldquo;Every great journalist started exactly where you are now.
                     The only difference is they took the first step.&rdquo;
                   </p>

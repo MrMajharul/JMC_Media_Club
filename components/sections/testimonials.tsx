@@ -85,7 +85,7 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-24 bg-jmc-navy relative overflow-hidden">
+    <section className="py-24 bg-gray-50 dark:bg-jmc-navy relative overflow-hidden">
       {/* Grid */}
       <div className="absolute inset-0 grid-pattern" />
       <div className="absolute top-0 left-1/4 w-80 h-80 bg-jmc-green/5 rounded-full blur-3xl pointer-events-none" />
@@ -102,7 +102,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
         >
           <span className="section-pill mb-4">Voices</span>
-          <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-white mt-4">
+          <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-jmc-navy dark:text-white mt-4">
             What They <span className="text-gradient-light">Say</span>
           </h2>
           <p className="text-gray-400 mt-4 max-w-xl mx-auto">
@@ -133,17 +133,17 @@ export default function Testimonials() {
               </div>
 
               {/* Quote text */}
-              <blockquote className="text-white/90 text-lg md:text-xl leading-relaxed italic font-light mb-10 pl-2">
+              <blockquote className="text-jmc-navy dark:text-white/90 text-lg md:text-xl leading-relaxed italic font-light mb-10 pl-2">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
               {/* Author */}
               <div className="flex items-center gap-5 pl-2">
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${t.gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                  <span className="text-white font-bold text-base">{t.initial}</span>
+                  <span className="text-jmc-navy dark:text-white font-bold text-base">{t.initial}</span>
                 </div>
                 <div>
-                  <p className="font-montserrat font-bold text-white text-base">{t.name}</p>
+                  <p className="font-montserrat font-bold text-jmc-navy dark:text-white text-base">{t.name}</p>
                   <p className="text-jmc-green text-sm font-semibold">{t.role}</p>
                   <p className="text-gray-400 text-xs">{t.org}</p>
                 </div>
@@ -165,14 +165,14 @@ export default function Testimonials() {
           {/* Nav arrows */}
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-11 h-11 rounded-full bg-white/8 hover:bg-jmc-green border border-white/10 hover:border-jmc-green text-white flex items-center justify-center transition-all duration-200 hidden md:flex"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-11 h-11 rounded-full bg-white/8 hover:bg-jmc-green border border-white/10 hover:border-jmc-green text-jmc-navy dark:text-white flex items-center justify-center transition-all duration-200 hidden md:flex"
             aria-label="Previous testimonial"
           >
             <ChevronLeft size={18} />
           </button>
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-11 h-11 rounded-full bg-white/8 hover:bg-jmc-green border border-white/10 hover:border-jmc-green text-white flex items-center justify-center transition-all duration-200 hidden md:flex"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-11 h-11 rounded-full bg-white/8 hover:bg-jmc-green border border-white/10 hover:border-jmc-green text-jmc-navy dark:text-white flex items-center justify-center transition-all duration-200 hidden md:flex"
             aria-label="Next testimonial"
           >
             <ChevronRight size={18} />
@@ -187,7 +187,7 @@ export default function Testimonials() {
               onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
               className={`w-10 h-10 rounded-xl bg-gradient-to-br ${tm.gradient} flex items-center justify-center flex-shrink-0 transition-all duration-200 ${i === current ? 'ring-2 ring-jmc-green ring-offset-2 ring-offset-jmc-navy scale-110' : 'opacity-50 hover:opacity-80'}`}
             >
-              <span className="text-white text-[10px] font-bold">{tm.initial}</span>
+              <span className="text-jmc-navy dark:text-white text-[10px] font-bold">{tm.initial}</span>
             </button>
           ))}
         </div>

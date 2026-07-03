@@ -118,17 +118,17 @@ export default function FeaturedEvents() {
                   />
 
                   {/* Date badge */}
-                  <div className="relative flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/20 text-white">
+                  <div className="relative flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/20 text-jmc-navy dark:text-white">
                     <span className="font-bold text-xl leading-none">{date.day}</span>
                     <span className="text-[10px] font-semibold tracking-wider uppercase opacity-80">{date.month}</span>
                   </div>
 
                   <div className="relative flex items-center gap-2">
-                    <span className="px-3 py-1 bg-black/20 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs font-semibold">
+                    <span className="px-3 py-1 bg-black/20 backdrop-blur-sm border border-white/20 rounded-full text-jmc-navy dark:text-white text-xs font-semibold">
                       {event.category}
                     </span>
                     <div className="w-9 h-9 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                      <Icon className="text-white/80" size={18} />
+                      <Icon className="text-jmc-navy dark:text-white/80" size={18} />
                     </div>
                   </div>
                 </div>

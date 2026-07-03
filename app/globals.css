@@ -158,7 +158,8 @@ body {
 /* ─── Page hero (dark navy base) ────────────────────────────────────────── */
 .page-hero {
   @apply relative overflow-hidden pt-20 pb-16
-         bg-gradient-to-br from-jmc-navy via-[#0f2233] to-[#0a1a10];
+         bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200
+         dark:from-jmc-navy dark:via-[#0f2233] dark:to-[#0a1a10];
 }
 
 /* Standard input */

@@ -11,7 +11,7 @@ const pillars = [
     description: 'Promoting ethical journalism and media professionalism through hands-on reporting.',
     color: 'bg-[#0D1B2A]/5 dark:bg-jmc-green/5',
     iconBg: 'bg-[#0D1B2A] dark:bg-jmc-green/20',
-    iconColor: 'text-white dark:text-jmc-green',
+    iconColor: 'text-jmc-navy dark:text-white dark:text-jmc-green',
   },
   {
     icon: Camera,
@@ -19,7 +19,7 @@ const pillars = [
     description: 'Creating impactful visual and digital content that tells compelling stories.',
     color: 'bg-jmc-dark-green/5 dark:bg-jmc-green/5',
     iconBg: 'bg-jmc-dark-green dark:bg-jmc-green/20',
-    iconColor: 'text-white dark:text-jmc-green',
+    iconColor: 'text-jmc-navy dark:text-white dark:text-jmc-green',
   },
   {
     icon: Mic,
@@ -27,7 +27,7 @@ const pillars = [
     description: 'Enhancing skills in public speaking, broadcasting, and effective storytelling.',
     color: 'bg-[#0D1B2A]/5 dark:bg-jmc-green/5',
     iconBg: 'bg-[#0D1B2A] dark:bg-jmc-green/20',
-    iconColor: 'text-white dark:text-jmc-green',
+    iconColor: 'text-jmc-navy dark:text-white dark:text-jmc-green',
   },
   {
     icon: Users,
@@ -35,7 +35,7 @@ const pillars = [
     description: 'Building the next generation of leaders for the future media and communication world.',
     color: 'bg-jmc-dark-green/5 dark:bg-jmc-green/5',
     iconBg: 'bg-jmc-dark-green dark:bg-jmc-green/20',
-    iconColor: 'text-white dark:text-jmc-green',
+    iconColor: 'text-jmc-navy dark:text-white dark:text-jmc-green',
   },
 ]
 

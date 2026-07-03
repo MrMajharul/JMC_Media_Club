@@ -64,22 +64,22 @@ export default function GalleryPreview() {
               <div className={`bg-gradient-to-br ${img.gradient} h-64 relative overflow-hidden`}>
                 <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle, rgba(34,197,94,0.2) 1px, transparent 1px)', backgroundSize: '18px 18px' }} />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Camera size={32} className="text-white/20" />
+                  <Camera size={32} className="text-jmc-navy dark:text-white/20" />
                 </div>
               </div>
 
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-jmc-navy/0 group-hover:bg-jmc-navy/70 transition-all duration-300 flex items-end">
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-white/0 dark:bg-jmc-navy/0 group-hover:bg-white/70 dark:group-hover:bg-jmc-navy/70 transition-all duration-300 flex items-end">
                 <div className="w-full p-5 translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-jmc-green text-xs font-semibold uppercase tracking-wider">
                       {img.category}
                     </span>
                     <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                      <ZoomIn size={14} className="text-white" />
+                      <ZoomIn size={14} className="text-jmc-navy dark:text-white" />
                     </div>
                   </div>
-                  <h4 className="text-white font-semibold text-sm leading-snug">{img.title}</h4>
+                  <h4 className="text-jmc-navy dark:text-white font-semibold text-sm leading-snug">{img.title}</h4>
                 </div>
               </div>
             </motion.div>

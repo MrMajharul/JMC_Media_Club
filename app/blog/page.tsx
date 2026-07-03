@@ -48,7 +48,7 @@ export default function BlogPage() {
               <Newspaper size={14} />
               Stories &amp; Insights
             </span>
-            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-white">
+            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-jmc-navy dark:text-white">
               Blog &amp; <span className="text-gradient-light">News</span>
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl">
@@ -81,7 +81,7 @@ export default function BlogPage() {
                   <div className={`bg-gradient-to-br ${gradients[0]} h-64 flex items-end p-6 relative overflow-hidden`}>
                     <div className="absolute inset-0 dot-pattern opacity-[0.07]" />
                     <div className="relative flex items-center gap-3">
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold border bg-black/20 backdrop-blur-sm text-white border-white/20`}>
+                      <span className={`px-3 py-1 rounded-full text-xs font-bold border bg-black/20 backdrop-blur-sm text-jmc-navy dark:text-white border-white/20`}>
                         Featured
                       </span>
                       <span className={`px-3 py-1 rounded-full text-xs font-semibold border bg-jmc-green/20 backdrop-blur-sm text-jmc-green border-jmc-green/30`}>
@@ -101,7 +101,7 @@ export default function BlogPage() {
                       <div className="flex items-center gap-4 text-sm text-gray-400">
                         <div className="flex items-center gap-1.5">
                           <div className="w-6 h-6 rounded-full bg-jmc-dark-green flex items-center justify-center">
-                            <span className="text-white text-[9px] font-bold">{post.author.slice(0, 2).toUpperCase()}</span>
+                            <span className="text-jmc-navy dark:text-white text-[9px] font-bold">{post.author.slice(0, 2).toUpperCase()}</span>
                           </div>
                           <span>{post.author}</span>
                         </div>
@@ -154,7 +154,7 @@ export default function BlogPage() {
                     <div className="flex items-center justify-between text-xs text-gray-400">
                       <div className="flex items-center gap-1.5">
                         <div className="w-5 h-5 rounded-full bg-jmc-dark-green flex items-center justify-center">
-                          <span className="text-white text-[8px] font-bold">{post.author.slice(0, 2).toUpperCase()}</span>
+                          <span className="text-jmc-navy dark:text-white text-[8px] font-bold">{post.author.slice(0, 2).toUpperCase()}</span>
                         </div>
                         <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
                       </div>

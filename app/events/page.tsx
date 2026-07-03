@@ -105,7 +105,7 @@ export default function EventsPage() {
             transition={{ duration: 0.7 }}
           >
             <span className="section-pill mb-4">Our Events</span>
-            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-white">
+            <h1 className="font-montserrat font-bold text-5xl md:text-6xl mt-4 mb-5 text-jmc-navy dark:text-white">
               Upcoming <span className="text-gradient-light">Events</span>
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl">
@@ -127,8 +127,8 @@ export default function EventsPage() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 ${
                   activeTab === tab.id
-                    ? 'bg-jmc-dark-green text-white shadow-sm'
-                    : 'text-gray-500 dark:text-gray-400 hover:text-jmc-navy dark:hover:text-white'
+                    ? 'bg-jmc-dark-green text-jmc-navy dark:text-white shadow-sm'
+                    : 'text-gray-500 dark:text-gray-400 hover:text-jmc-navy dark:hover:text-jmc-navy dark:text-white'
                 }`}
               >
                 {tab.label}
@@ -157,17 +157,17 @@ export default function EventsPage() {
                     <div className="absolute inset-0 dot-pattern opacity-[0.08]" />
 
                     {/* Date badge */}
-                    <div className="relative flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/20 text-white">
+                    <div className="relative flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/20 text-jmc-navy dark:text-white">
                       <span className="font-bold text-xl leading-none">{date.day}</span>
                       <span className="text-[10px] font-semibold tracking-wider uppercase opacity-80">{date.month}</span>
                     </div>
 
                     <div className="relative flex items-center gap-2">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold border bg-black/20 backdrop-blur-sm text-white border-white/20`}>
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold border bg-black/20 backdrop-blur-sm text-jmc-navy dark:text-white border-white/20`}>
                         {event.category}
                       </span>
                       <div className="w-9 h-9 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                        <Icon className="text-white/80" size={18} />
+                        <Icon className="text-jmc-navy dark:text-white/80" size={18} />
                       </div>
                     </div>
                   </div>

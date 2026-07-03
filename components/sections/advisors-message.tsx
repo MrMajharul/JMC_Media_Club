@@ -58,7 +58,7 @@ export default function AdvisorsMessage() {
             {/* Signature */}
             <div className="mt-10 flex items-center gap-5">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-jmc-dark-green to-jmc-green flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold">{advisor.initials}</span>
+                <span className="text-jmc-navy dark:text-white font-bold">{advisor.initials}</span>
               </div>
               <div>
                 <p className="font-montserrat font-bold text-jmc-navy dark:text-white">{advisor.name}</p>
@@ -85,7 +85,7 @@ export default function AdvisorsMessage() {
                   <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, rgba(34,197,94,0.08) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
                   {/* Fallback initials */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-white/10 font-black text-[8rem] font-montserrat select-none">{advisor.initials}</span>
+                    <span className="text-jmc-navy dark:text-white/10 font-black text-[8rem] font-montserrat select-none">{advisor.initials}</span>
                   </div>
                   <Image
                     src={advisor.photo}
@@ -111,12 +111,12 @@ export default function AdvisorsMessage() {
 
               {/* Vision card floating */}
               <motion.div
-                className="absolute -bottom-5 -left-5 max-w-[220px] p-5 bg-jmc-navy rounded-2xl shadow-xl border border-white/5"
+                className="absolute -bottom-5 -left-5 max-w-[220px] p-5 bg-gray-50 dark:bg-jmc-navy rounded-2xl shadow-xl border border-white/5"
                 animate={{ y: [0, 6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               >
                 <Quote size={18} className="text-jmc-green mb-2" />
-                <p className="text-white/90 text-xs leading-relaxed font-medium italic">
+                <p className="text-jmc-navy dark:text-white/90 text-xs leading-relaxed font-medium italic">
                   &ldquo;{advisor.vision}&rdquo;
                 </p>
               </motion.div>

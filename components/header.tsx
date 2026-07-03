@@ -4,13 +4,20 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight, Sun, Moon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTheme } from 'next-themes'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const navItems = [
     { label: 'Home',       href: '/' },
@@ -92,6 +99,16 @@ export default function Header() {
 
         {/* ── CTA + Mobile Toggle ────────────────────────────────────── */}
         <div className="flex items-center gap-2.5">
+          {/* Theme Toggle */}
+          <button
+            onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+            className="p-2.5 rounded-xl border border-gray-100 dark:border-white/10 hover:border-jmc-green/30 hover:bg-gray-50 dark:hover:bg-white/5 text-gray-600 dark:text-gray-300 transition-all duration-200 focus:outline-none"
+            aria-label="Toggle theme"
+            id="theme-toggle"
+          >
+            {mounted && resolvedTheme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
           <Link
             href="/membership"
             className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-jmc-dark-green hover:bg-[#15803d] text-white rounded-xl font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-jmc-green/25 hover:-translate-y-0.5"

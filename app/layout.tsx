@@ -47,7 +47,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} ${montserrat.variable} font-poppins`}>
+      <body className={`${poppins.variable} ${montserrat.variable} font-poppins bg-white dark:bg-jmc-bg-dark text-jmc-navy dark:text-white transition-colors duration-300`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
