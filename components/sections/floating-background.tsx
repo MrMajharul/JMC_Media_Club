@@ -41,8 +41,20 @@ interface FloatingElement {
   opacity: number
 }
 
+interface Particle {
+  id: number
+  width: number
+  height: number
+  left: number
+  top: number
+  opacity: number
+  duration: number
+}
+
 export default function FloatingBackground() {
   const [elements, setElements] = useState<FloatingElement[]>([])
+  const [particles, setParticles] = useState<Particle[]>([])
+  const [mounted, setMounted] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   
   // Mouse position
@@ -55,6 +67,8 @@ export default function FloatingBackground() {
   const yParallaxFast = useTransform(scrollY, [0, 1000], [0, -300])
   
   useEffect(() => {
+    setMounted(true)
+    
     // Determine number of elements based on screen size
     const width = window.innerWidth
     let count = 15
@@ -62,7 +76,6 @@ export default function FloatingBackground() {
     else if (width < 1024) count = 9
 
     const newElements: FloatingElement[] = []
-    
     for (let i = 0; i < count; i++) {
       const Icon = ALL_ICONS[Math.floor(Math.random() * ALL_ICONS.length)]
       newElements.push({
@@ -77,6 +90,20 @@ export default function FloatingBackground() {
       })
     }
     setElements(newElements)
+
+    const newParticles: Particle[] = []
+    for (let i = 0; i < 20; i++) {
+      newParticles.push({
+        id: i,
+        width: Math.random() * 3 + 1,
+        height: Math.random() * 3 + 1,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        opacity: Math.random() * 0.4 + 0.1,
+        duration: Math.random() * 3 + 2
+      })
+    }
+    setParticles(newParticles)
   }, [])
 
   useEffect(() => {
@@ -96,6 +123,10 @@ export default function FloatingBackground() {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [mouseX, mouseY])
 
+  if (!mounted) {
+    return null
+  }
+
   return (
     <div 
       ref={containerRef} 
@@ -104,18 +135,18 @@ export default function FloatingBackground() {
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Tiny glowing particles */}
-        {Array.from({ length: 20 }).map((_, i) => (
+        {particles.map((p) => (
           <div
-            key={`particle-${i}`}
+            key={`particle-${p.id}`}
             className="absolute rounded-full bg-jmc-green"
             style={{
-              width: Math.random() * 3 + 1 + 'px',
-              height: Math.random() * 3 + 1 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-              opacity: Math.random() * 0.4 + 0.1,
+              width: `${p.width}px`,
+              height: `${p.height}px`,
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              opacity: p.opacity,
               boxShadow: '0 0 8px 2px rgba(34, 197, 94, 0.5)', // Brighter green glow
-              animation: `pulse ${Math.random() * 3 + 2}s infinite alternate`
+              animation: `pulse ${p.duration}s infinite alternate`
             }}
           />
         ))}
@@ -168,7 +199,7 @@ export default function FloatingBackground() {
       </motion.div>
       
       {/* Curved connection lines */}
-      <svg className="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#166534" stopOpacity="0" />
@@ -176,10 +207,10 @@ export default function FloatingBackground() {
             <stop offset="100%" stopColor="#166534" stopOpacity="0" />
           </linearGradient>
         </defs>
-        {/* Sample connections */}
-        <path d="M 10% 20% Q 30% 40% 50% 10%" fill="transparent" stroke="url(#line-grad)" strokeWidth="1" />
-        <path d="M 80% 15% Q 60% 30% 90% 60%" fill="transparent" stroke="url(#line-grad)" strokeWidth="1" />
-        <path d="M 20% 60% Q 50% 50% 70% 80%" fill="transparent" stroke="url(#line-grad)" strokeWidth="1" />
+        {/* Sample connections (coordinates mapped 0-100 using viewBox) */}
+        <path d="M 10 20 Q 30 40 50 10" fill="transparent" stroke="url(#line-grad)" strokeWidth="0.2" />
+        <path d="M 80 15 Q 60 30 90 60" fill="transparent" stroke="url(#line-grad)" strokeWidth="0.2" />
+        <path d="M 20 60 Q 50 50 70 80" fill="transparent" stroke="url(#line-grad)" strokeWidth="0.2" />
       </svg>
     </div>
   )
